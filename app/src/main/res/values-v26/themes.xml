@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:paddingVertical">10dp</item>
+        <item name="boxStrokeColor">@color/baseGreen</item>
+        <item name="android:textColorHint">@color/green</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+    <style name="TextInputLayoutNotEnabledStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:textColor">@color/blackFateh</item>
+        <item name="android:paddingVertical" tools:targetApi="o">10dp</item>
+        <item name="boxStrokeColor">@color/greenFateh</item>
+        <item name="android:textColorHint">@color/green</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+</resources>

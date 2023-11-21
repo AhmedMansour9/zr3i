@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
+    android:layout_marginHorizontal="5dp">
+
+    <CheckBox
+        android:id="@+id/account_type_check_box"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:buttonTint="@color/green"/>
+
+    <TextView
+        android:id="@+id/account_type_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/account_type_check_box"
+        android:text="@string/mozare3"
+        android:textSize="14sp"
+        android:textColor="@color/blackFateh"/>
+
+</RelativeLayout>
