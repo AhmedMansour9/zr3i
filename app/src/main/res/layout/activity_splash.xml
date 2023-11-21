@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".ui.activities.splash_activity.LoginSplashActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="?actionBarSize">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo_ar" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_splash_screen_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="?actionBarSize"
+            android:background="@drawable/login_button_shape"
+            android:elevation="10dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="تسجيل الدخول"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_splash_screen_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_splash_screen_text_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="?actionBarSize"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/register_button_shape"
+            android:elevation="10dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="إنشاء حساب"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/greenFateh"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_with_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_splash_screen_text_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="?actionBarSize"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/register_button_shape"
+            android:elevation="10dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:drawableLeft="@drawable/ic_facebook"
+            android:text="@string/login_with_fb"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/greenFateh"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>

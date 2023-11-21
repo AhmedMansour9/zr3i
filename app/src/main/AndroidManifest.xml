@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.schemecode.zr3i">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/Theme.Zr3i"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activities.upgrade_account_activity.UpgradeAccountActivity"></activity>
+        <activity android:name=".ui.activities.renewal_quota_acticity.RenewalQuotaActivity" />
+        <activity android:name=".ui.activities.montada_web_view.MontadaActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity android:name=".ui.activities.splash_screen.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activities.land_map_activity.LandMapActivity" />
+        <activity android:name=".ui.activities.edit_land_details.EditLandActivity" />
+        <activity android:name=".ui.activities.Farmer.FarmerActivity" />
+        <activity android:name=".ui.activities.list_farmers.ListFarmersActivity" />
+        <activity android:name=".ui.activities.change_pass.ChangePassActivity" />
+        <activity android:name=".ui.activities.usage_activity.UsageActivity" />
+        <activity android:name=".ui.activities.profile_activity.ProfileActivity" />
+        <activity android:name=".ui.activities.land_activity.LandActivity" />
+        <activity android:name=".ui.activities.list_lands_activity.ListLandsActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".ui.activities.new_land_activity.LandCreationActivity" />
+        <activity android:name=".ui.activities.splash_activity.LoginSplashActivity" />
+        <activity android:name=".ui.activities.home_activity.HomeActivity" />
+        <activity android:name=".ui.activities.forget_activity.ForgetActivity" />
+        <activity android:name=".ui.activities.login_activity.LoginActivity" />
+        <activity android:name=".ui.activities.register_activity.RegisterActivity" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>
