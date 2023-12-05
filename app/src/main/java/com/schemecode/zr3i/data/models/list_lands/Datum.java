@@ -3,6 +3,11 @@ package com.schemecode.zr3i.data.models.list_lands;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.schemecode.zr3i.data.models.show_lands.Crop_Field;
+import com.schemecode.zr3i.data.models.store_land.CropField;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Datum {
 
@@ -81,6 +86,18 @@ public class Datum {
     @SerializedName("map_image_url")
     @Expose
     private String map_image_url;
+
+    @SerializedName("crop_fields")
+    @Expose
+    private ArrayList<Crop_Field> cropFields;
+
+    public ArrayList<Crop_Field> getCropFields() {
+        return cropFields;
+    }
+
+    public void setCropFields(ArrayList<Crop_Field> cropFields) {
+        this.cropFields = cropFields;
+    }
 
     public String getMap_image_url() {
         return map_image_url;

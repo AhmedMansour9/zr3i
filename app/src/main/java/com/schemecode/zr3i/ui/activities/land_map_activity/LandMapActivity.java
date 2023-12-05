@@ -36,9 +36,12 @@ import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.google.maps.android.SphericalUtil;
 import com.schemecode.zr3i.R;
+import com.schemecode.zr3i.data.models.list_lands.Datum;
 import com.schemecode.zr3i.data.models.show_lands.A;
+import com.schemecode.zr3i.data.models.show_lands.Crop_Field;
 import com.schemecode.zr3i.data.models.show_lands.Data;
 import com.schemecode.zr3i.ui.activities.login_activity.LoginActivity;
 import com.schemecode.zr3i.ui.activities.new_land_activity.LandCreationActivity;
@@ -47,6 +50,7 @@ import com.schemecode.zr3i.ui.dialogs.success_dialog.SuccessDialog;
 
 import org.json.JSONArray;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -74,7 +78,7 @@ public class LandMapActivity extends AppCompatActivity implements OnMapReadyCall
     private SharedPreferences sharedPreferences;
     private int landId;
     private HashMap<String, String> arrayJsonMap;
-
+    List<Crop_Field> itemList ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +92,12 @@ public class LandMapActivity extends AppCompatActivity implements OnMapReadyCall
         token = sharedPreferences.getString("token", "token");
         secret = sharedPreferences.getString("secret", "secret");
         landMapPresenter.getLandObject(landId, token, secret);
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<Crop_Field>>() {
+        }.getType();
+
+         itemList = gson.fromJson(intent.getStringExtra("list"), listType);
+
     }
 
     @Override
@@ -207,22 +217,23 @@ public class LandMapActivity extends AppCompatActivity implements OnMapReadyCall
 
     @Override
     public void setData(Data data) {
-        if (data.getMapDetails().getLatitude() != null &&
-                data.getMapDetails().getLongitude() != null &&
-                data.getMapDetails().getZoom() != null &&
-                data.getMapDetails().getPolygon() != null) {
+
+        if (itemList.get(0).getMapDetails().getLatitude() != null &&
+                itemList.get(0).getMapDetails().getLongitude() != null &&
+                itemList.get(0).getMapDetails().getZoom() != null &&
+                itemList.get(0).getMapDetails().getPolygon() != null) {
             btnDraw.setEnabled(true);
             btnRemove.setEnabled(true);
             btnSubmit.setEnabled(true);
-            double lat = Double.parseDouble(data.getMapDetails().getLatitude());
-            double lng = Double.parseDouble(data.getMapDetails().getLongitude());
-            float zoom = Float.parseFloat(data.getMapDetails().getZoom());
+            double lat = Double.parseDouble(itemList.get(0).getMapDetails().getLatitude());
+            double lng = Double.parseDouble(itemList.get(0).getMapDetails().getLongitude());
+            float zoom = Float.parseFloat(itemList.get(0).getMapDetails().getZoom());
             Log.e("lat", String.valueOf(lat));
             Log.e("lng", String.valueOf(lng));
             Log.e("zoom", String.valueOf(zoom));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
-            for (int i = 0; i < data.getMapDetails().getPolygon().size(); i++) {
-                LatLng latLng = new LatLng(data.getMapDetails().getPolygon().get(i).getLat(), data.getMapDetails().getPolygon().get(i).getLng());
+            for (int i = 0; i < itemList.get(0).getMapDetails().getPolygon().size(); i++) {
+                LatLng latLng = new LatLng(itemList.get(0).getMapDetails().getPolygon().get(i).getLat(), itemList.get(0).getMapDetails().getPolygon().get(i).getLng());
                 latLngList.add(latLng);
             }
             PolygonOptions polygonOptions = new PolygonOptions().addAll(latLngList).clickable(true);

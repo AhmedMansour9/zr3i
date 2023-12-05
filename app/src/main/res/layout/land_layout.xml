@@ -154,21 +154,24 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:background="@drawable/show_details_shape"/>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/edit_land_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/show_details_button"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:background="@drawable/buttons_shape"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/show_details_button"
                 android:text="@string/edit_land"
-                android:textSize="12sp"
-                android:background="@drawable/buttons_shape"/>
+                android:textSize="12sp" />
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/farmers_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:layout_marginTop="5dp"

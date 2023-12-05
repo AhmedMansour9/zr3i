@@ -6,14 +6,16 @@
         <entry key="app/src/main/res/drawable/bc_shape_weather.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/btn_shape.xml" value="0.1705" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_land.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_land.xml" value="0.31492248062015504" />
         <entry key="app/src/main/res/layout/activity_land_creation.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_land_map.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/layout/activity_list_lands.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_splash2.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_sub_domain_screen.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/layout/land_layout.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/weather_details_layout.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/weather_excpectations_layout.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/weather_item.xml" value="0.3302083333333333" />

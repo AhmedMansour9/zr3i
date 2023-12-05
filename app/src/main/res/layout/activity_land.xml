@@ -263,6 +263,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/show_details_button"
                 android:layout_marginHorizontal="4dp"
+                android:visibility="gone"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_shape"
@@ -274,6 +275,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/farmers_button"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/edit_land_button"
                 android:layout_marginHorizontal="4dp"
@@ -291,6 +293,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/farmers_button"
                 android:layout_marginHorizontal="4dp"
+                android:visibility="gone"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_shape"

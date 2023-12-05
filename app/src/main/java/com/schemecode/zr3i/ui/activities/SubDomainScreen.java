@@ -29,9 +29,9 @@ public class SubDomainScreen extends AppCompatActivity {
         urlEditText = findViewById(R.id.url_edit_text);
         confirmBtn.setOnClickListener(view -> {
             if (!urlEditText.getText().toString().isEmpty()) {
-                editor.putString("link", "http://"+urlEditText.getText().toString()+".stagging.zr3i.com/api/v1/");
+                editor.putString("link", "http://"+urlEditText.getText().toString()+".zr3i-stagging.strategizeit.us/api/v1/");
                 editor.commit();
-                MainApp.BASE_URL = "http://"+urlEditText.getText().toString()+".stagging.zr3i.com/api/v1/";
+                MainApp.BASE_URL = "http://"+urlEditText.getText().toString()+".zr3i-stagging.strategizeit.us/api/v1/";
                 Intent loginIntent = new Intent(SubDomainScreen.this, LoginActivity.class);
                 startActivity(loginIntent);
 

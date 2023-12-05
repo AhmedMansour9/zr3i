@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.schemecode.zr3i.R;
+import com.schemecode.zr3i.data.models.show_lands.ListDataByTime;
 import com.schemecode.zr3i.data.models.weather.ByDayTimeResponse;
 import com.schemecode.zr3i.data.models.weather.WeatherResponse;
 
@@ -28,9 +29,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
-    private final List<ByDayTimeResponse> weatherDataList;
+    private final List<ListDataByTime> weatherDataList;
 
-    public WeatherAdapter(List<ByDayTimeResponse> weatherDataList) {
+    public WeatherAdapter(List<ListDataByTime> weatherDataList) {
         this.weatherDataList = weatherDataList;
     }
 
@@ -43,17 +44,17 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
-        ByDayTimeResponse weatherData = weatherDataList.get(position);
+        ListDataByTime weatherData = weatherDataList.get(position);
 
         Pair<String,String> formattedDate = convertTimestampToDateString(weatherData.getDt());
 
         holder.dateTextView.setText( formattedDate.second + " "+formattedDate.first);
-        double kelvinTemperature = weatherData.getTemp().getMin();
+        double kelvinTemperature = weatherData.getMain().getTempMin();
         double celsiusTemperature = kelvinTemperature - 273.15;
         String formattedCelsiusTemperature = String.format("%.2f°C", celsiusTemperature);
         holder.summaryTextView.setText(formattedCelsiusTemperature);
 
-        double kelvinTemperatureMax = weatherData.getTemp().getMax();
+        double kelvinTemperatureMax = weatherData.getMain().getTempMax();
         double celsiusTemperatureMax = kelvinTemperatureMax - 273.15;
         String formattedCelsiusTemperatureMax = String.format("%.2f°C", celsiusTemperatureMax);
         holder.temperatureTextView.setText(formattedCelsiusTemperatureMax);
@@ -65,6 +66,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
         cal.setTimeInMillis(timestamp * 1000);
         String date = DateFormat.format("dd", cal).toString();
         String dateMonth = DateFormat.format("MM", cal).toString();
+        String time = DateFormat.format("hh:mm a", cal).toString();
 
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
         int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
@@ -91,7 +93,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
 
        String dayArabic = getArabicDayName(position);
 
-        return Pair.create(newDate+"/"+dateMonth, dayArabic);
+        return Pair.create(newDate+"/"+dateMonth+" "+time, dayArabic);
     }
     public String getArabicDayName(int dayIndex) {
         String[] arabicDaysOfWeek = new String[]{"الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"};

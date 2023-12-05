@@ -14,6 +14,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.schemecode.zr3i.R;
 import com.schemecode.zr3i.data.classes.PrefLand;
 import com.schemecode.zr3i.data.models.list_lands.Datum;
@@ -125,8 +126,13 @@ public class ListLandsAdapter extends RecyclerView.Adapter<ListLandsAdapter.List
         holder.btnShowMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Gson gson = new Gson();
+                String json = gson.toJson(land.getCropFields());
+                System.out.println("JSON representation: " + json);
+
                 Intent landMapIntent = new Intent(context , LandMapActivity.class);
                 landMapIntent.putExtra("land_id" ,land.getId());
+                landMapIntent.putExtra("list",json);
                 context.startActivity(landMapIntent);
             }
         });

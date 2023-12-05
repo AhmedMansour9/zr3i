@@ -436,13 +436,13 @@ public class Data {
         this.mapUrl = mapUrl;
     }
 
-    public MapDetails getMapDetails() {
-        return mapDetails;
-    }
-
-    public void setMapDetails(MapDetails mapDetails) {
-        this.mapDetails = mapDetails;
-    }
+//    public MapDetails getMapDetails() {
+//        return mapDetails;
+//    }
+//
+//    public void setMapDetails(MapDetails mapDetails) {
+//        this.mapDetails = mapDetails;
+//    }
 
     public FieldIndexAreaImage getFieldIndexAreaImage() {
         return fieldIndexAreaImage;

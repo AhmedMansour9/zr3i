@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class MapDetails {
 
-        @SerializedName("zoom")
+    @SerializedName("zoom")
     @Expose
     private String zoom;
     @SerializedName("latitude")

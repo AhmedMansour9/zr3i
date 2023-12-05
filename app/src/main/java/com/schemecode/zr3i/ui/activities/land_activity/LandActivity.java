@@ -61,6 +61,7 @@ import com.schemecode.zr3i.data.models.show_details_lands.Indicators;
 import com.schemecode.zr3i.data.models.show_details_lands.Weather;
 import com.schemecode.zr3i.data.models.show_details_lands.WeatherExpectation;
 import com.schemecode.zr3i.data.models.show_details_lands.WeatherExpectationObject;
+import com.schemecode.zr3i.data.models.show_lands.ListDataByTime;
 import com.schemecode.zr3i.data.models.weather.ByDayTimeResponse;
 import com.schemecode.zr3i.data.models.weather.WeatherResponse;
 import com.schemecode.zr3i.helpers.FileDownloader;
@@ -415,18 +416,18 @@ public class LandActivity extends AppCompatActivity implements LandContract.view
                     tvHumandity.setText(humandity + " " + "%");
                     tvPressure.setText(pressure + " " + "hPa");
                     tvWindSpeed.setText(windSpeed);
-
-
-
-                    Gson gson = new Gson();
-                    Type listType = new TypeToken<List<ByDayTimeResponse>>() {
-                    }.getType();
-                    String jsonString = gson.toJson(data.getWeather().getForcasting().getByDayTimes());
-
-                    List<ByDayTimeResponse> byDayTimeResponseList = gson.fromJson(jsonString, listType);
-
-                    Log.d("", "setData: " + byDayTimeResponseList.size());
-                    RecyclerView.Adapter<WeatherViewHolder> adapter = new WeatherAdapter(byDayTimeResponseList);
+//
+//
+//
+//                    Gson gson = new Gson();
+//                    Type listType = new TypeToken<List<ByDayTimeResponse>>() {
+//                    }.getType();
+//                    String jsonString = gson.toJson(data.getWeather().getForcasting().getByDayTimes());
+//
+//                    List<ByDayTimeResponse> byDayTimeResponseList = gson.fromJson(jsonString, listType);
+//
+//                    Log.d("", "setData: " + byDayTimeResponseList.size());
+                    RecyclerView.Adapter<WeatherViewHolder> adapter = new WeatherAdapter(data.getWeather().getForcasting().getList());
                     weatherExpectationLayoutManage = new GridLayoutManager(LandActivity.this, 3);
                     rvWeatherExpectations.setLayoutManager(weatherExpectationLayoutManage);
                     rvWeatherExpectations.setHasFixedSize(true);
@@ -434,7 +435,7 @@ public class LandActivity extends AppCompatActivity implements LandContract.view
                     rvWeatherExpectations.setAdapter(adapter);
                     tvWaitingCurrentWeather.setVisibility(View.GONE);
                     tvWaitingWeatherExpectations.setVisibility(View.GONE);
-                    showDataWeather(byDayTimeResponseList.get(0));
+                    showDataWeather(data.getWeather().getForcasting().getList().get(0));
 
 
 //                    try {
@@ -519,15 +520,15 @@ public class LandActivity extends AppCompatActivity implements LandContract.view
         }
     }
 
-    private void showDataWeather(ByDayTimeResponse byDayTimeResponse) {
+    private void showDataWeather(ListDataByTime byDayTimeResponse) {
         llCurrentWeather.setVisibility(View.VISIBLE);
         tvWaitingCurrentWeather.setVisibility(View.GONE);
         llWeatherByDate.setVisibility(View.VISIBLE);
-        String maxTemp = "<font color='#72c02c'>" + byDayTimeResponse.getTemp().getMax() + "</font>";
-        String minTemp = "<font color='#72c02c'>" + byDayTimeResponse.getTemp().getMin() + "</font>";
-        String humandity = "<font color='#72c02c'>" + byDayTimeResponse.getHumidity() + "</font>";
-        String pressure = "<font color='#72c02c'>" + byDayTimeResponse.getPressure() + "</font>";
-        String speed = "<font color='#72c02c'>" + byDayTimeResponse.getWindDeg() + "," + byDayTimeResponse.getWindSpeed() + "</font>";
+        String maxTemp = "<font color='#72c02c'>" + byDayTimeResponse.getMain().getTempMax() + "</font>";
+        String minTemp = "<font color='#72c02c'>" + byDayTimeResponse.getMain().getTempMin() + "</font>";
+        String humandity = "<font color='#72c02c'>" + byDayTimeResponse.getMain().getHumidity() + "</font>";
+        String pressure = "<font color='#72c02c'>" + byDayTimeResponse.getMain().getPressure() + "</font>";
+        String speed = "<font color='#72c02c'>" + byDayTimeResponse.getWind().getDeg() + "," + byDayTimeResponse.getWind().getSpeed() + "</font>";
         tvMaxTemp.setText(Html.fromHtml(maxTemp + " " + "\u2103"));
         tvMinTemp.setText(Html.fromHtml(minTemp + " " + "\u2103"));
         tvForecastHumandity.setText(Html.fromHtml(humandity + " " + "%"));
